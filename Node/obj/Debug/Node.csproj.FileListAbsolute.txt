@@ -1,0 +1,5 @@
+C:\VSWorkSpace\Node\Node\bin\Debug\Node.exe.config
+C:\VSWorkSpace\Node\Node\bin\Debug\Node.exe
+C:\VSWorkSpace\Node\Node\bin\Debug\Node.pdb
+C:\VSWorkSpace\Node\Node\obj\Debug\Node.exe
+C:\VSWorkSpace\Node\Node\obj\Debug\Node.pdb
