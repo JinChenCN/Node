@@ -4,3 +4,5 @@ C:\VSWorkSpace\Node\Node\bin\Debug\Node.pdb
 C:\VSWorkSpace\Node\Node\obj\Debug\Node.exe
 C:\VSWorkSpace\Node\Node\obj\Debug\Node.pdb
 C:\VSWorkSpace\Node\Node\obj\Debug\Node.csprojResolveAssemblyReference.cache
+C:\VSWorkSpace\Node\Node\bin\Debug\Autofac.dll
+C:\VSWorkSpace\Node\Node\bin\Debug\Autofac.xml

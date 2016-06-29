@@ -7,11 +7,18 @@ namespace Node
 {
     public class NodeDescriber : INodeDescriber
     {
+        INodeTransformer _nodeTransformer;
+
+        public NodeDescriber (INodeTransformer nodeTransformer)
+        {
+            this._nodeTransformer = nodeTransformer;
+        }
         public string Describe(Node node)
         {
             System.IO.StringWriter nodeWriter = new System.IO.StringWriter();
             IndentedTextWriter indentWriter = new IndentedTextWriter(nodeWriter, "    ");
             indentWriter.Indent = 0;
+            node = _nodeTransformer.Transform(node);
             WriteNode(indentWriter, node, node.GetType() == typeof(NoChildrenNode)? true : false);
             return nodeWriter.ToString();
         }

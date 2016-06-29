@@ -5,3 +5,5 @@ C:\VSWorkSpace\Node\Node.Tests\obj\Debug\Node.Tests.pdb
 C:\VSWorkSpace\Node\Node.Tests\bin\Debug\Node.exe
 C:\VSWorkSpace\Node\Node.Tests\bin\Debug\Node.pdb
 C:\VSWorkSpace\Node\Node.Tests\obj\Debug\Node.Tests.csprojResolveAssemblyReference.cache
+C:\VSWorkSpace\Node\Node.Tests\bin\Debug\Autofac.dll
+C:\VSWorkSpace\Node\Node.Tests\bin\Debug\Autofac.xml

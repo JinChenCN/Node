@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,14 +49,17 @@
   <ItemGroup>
     <Compile Include="INodeDescriber.cs" />
     <Compile Include="INodeTransformer.cs" />
+    <Compile Include="INodeWriter.cs" />
     <Compile Include="MainEntry.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="NodeDescriber.cs" />
     <Compile Include="NodeTransformer.cs" />
+    <Compile Include="NodeWriter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

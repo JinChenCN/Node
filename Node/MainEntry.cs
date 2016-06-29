@@ -1,25 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Autofac;
+using System;
+using System.IO;
 
 namespace Node
 {
     class MainEntry
     {
-        public static void Main()
+        private static IContainer Container { get; set; }
+        public static void Main(string[] args)
         {
-            INodeDescriber nodeDescriber = new NodeDescriber();
-            var testData = new SingleChildNode("root",
-                            new TwoChildrenNode("child1",
-                                new NoChildrenNode("leaf1"),
-                                new SingleChildNode("child2",
-                                    new NoChildrenNode("leaf2"))));
+            var builder = new ContainerBuilder();
+            builder.RegisterType<NodeTransformer>().As<INodeTransformer>();
+            builder.RegisterType<NodeDescriber>().As<INodeDescriber>();
+            builder.RegisterType<NodeWriter>().As<INodeWriter>();
+            Container = builder.Build();
+            var filePath = args[0];
+            Test(filePath);
+        }
 
-            var result = nodeDescriber.Describe(testData);
-            Console.Write(result);
-            Console.ReadKey();
+        private static async void Test(string filePath)
+        {
+            using(var scope = Container.BeginLifetimeScope())
+            {
+                var testData = new ManyChildrenNode("root",
+                    new ManyChildrenNode("child1",
+                        new ManyChildrenNode("leaf1"),
+                        new ManyChildrenNode("child2",
+                            new ManyChildrenNode("leaf2"))));
+                var nodeWriter = scope.Resolve<INodeWriter>();
+                await nodeWriter.WriteToFileAsync(testData, filePath);
+                var result = File.ReadAllText(filePath);
+                Console.WriteLine(result);
+                Console.ReadKey();
+            }
         }
     }
 }

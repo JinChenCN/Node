@@ -1,9 +1,6 @@
 ﻿using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Node
 {
@@ -12,13 +9,19 @@ namespace Node
         public Node Transform(Node node)
         {
             var nodeType = node.GetType();
-            var @switch = new Dictionary<Type, Action>
+            if (nodeType == typeof(NoChildrenNode))
+            {
+                return node;
+            } else
+            {
+                var @switch = new Dictionary<Type, Action>
                 {
                     { typeof(SingleChildNode), () => node = TransformSingleChildNode((SingleChildNode)node) },
                     { typeof(TwoChildrenNode), () => node = TransformTwoChildrenNode((TwoChildrenNode)node) },
                     { typeof(ManyChildrenNode), () => node = TransformManyChildrenNode((ManyChildrenNode)node) },
                 };
-            @switch[nodeType]();
+                @switch[nodeType]();
+            }
             return node;
         }
 
