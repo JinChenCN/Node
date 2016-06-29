@@ -54,12 +54,12 @@ namespace Node
 
         private void WriteTwoChildrenNode(IndentedTextWriter indentWriter, Node node)
         {
-            Node FirstChild = ((TwoChildrenNode)node).FirstChild;
-            Node SecondChild = ((TwoChildrenNode)node).SecondChild;
-            bool isFirstChildEnd = FirstChild.GetType() == typeof(NoChildrenNode) ? true : false;
-            bool isSecondChildEnd = SecondChild.GetType() == typeof(NoChildrenNode)? true : false;
-            WriteNode(indentWriter, FirstChild, false);
-            WriteNode(indentWriter, SecondChild, isFirstChildEnd && isSecondChildEnd? true : false);
+            Node firstChild = ((TwoChildrenNode)node).FirstChild;
+            Node secondChild = ((TwoChildrenNode)node).SecondChild;
+            bool isFirstChildEnd = firstChild.GetType() == typeof(NoChildrenNode) ? true : false;
+            bool isSecondChildEnd = secondChild.GetType() == typeof(NoChildrenNode)? true : false;
+            WriteNode(indentWriter, firstChild, false);
+            WriteNode(indentWriter, secondChild, isFirstChildEnd && isSecondChildEnd? true : false);
         }
 
         private void WriteManyChildrenNode(IndentedTextWriter indentWriter, Node node)

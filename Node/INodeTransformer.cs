@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Node
 {
-    interface INodeTransformer
+    public interface INodeTransformer
     {
         string Transform(Node node);
     }
