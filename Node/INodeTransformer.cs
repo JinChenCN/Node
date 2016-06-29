@@ -8,6 +8,6 @@ namespace Node
 {
     public interface INodeTransformer
     {
-        string Transform(Node node);
+        Node Transform(Node node);
     }
 }

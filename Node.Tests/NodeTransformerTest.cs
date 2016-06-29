@@ -12,6 +12,7 @@ namespace Node.Tests
         public void ManyChildrenNodeTransform()
         {
             INodeTransformer nodeTransformer = new NodeTransformer();
+            INodeDescriber nodeDescriber = new NodeDescriber();
             var testData = new ManyChildrenNode("root",
                                 new ManyChildrenNode("child1",
                                     new ManyChildrenNode("leaf1"),
@@ -19,17 +20,13 @@ namespace Node.Tests
                                         new ManyChildrenNode("leaf2"))));
             var result = nodeTransformer.Transform(testData);
 
-            System.IO.StringWriter basetextwriter = new System.IO.StringWriter();
-            IndentedTextWriter indentwriter = new IndentedTextWriter(basetextwriter, "    ");
+            var expected = new SingleChildNode("root",
+                                new TwoChildrenNode("child1",
+                                    new NoChildrenNode("leaf1"),
+                                    new SingleChildNode("child2",
+                                        new NoChildrenNode("leaf2"))));
 
-            Dictionary<int, List<string>> outPutDic = new Dictionary<int, List<string>>();
-            outPutDic.Add(0, new List<string>(new string[] { @"new SingleChildNode(""root""," }));
-            outPutDic.Add(1, new List<string>(new string[] { @"new TwoChildrenNode(""child1""," }));
-            outPutDic.Add(2, new List<string>(new string[] { @"new NoChildrenNode(""leaf1""),", @"new SingleChildNode(""child2""," }));
-            outPutDic.Add(3, new List<string>(new string[] { @"new NoChildrenNode(""leaf2""))))" }));
-
-            Utility.WriteLevel(indentwriter, outPutDic);
-            Assert.AreEqual(basetextwriter.ToString(), result);
+            Assert.AreEqual(nodeDescriber.Describe(expected), nodeDescriber.Describe(result));
         }
     }
 }
