@@ -44,9 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="INodeDescriber.cs" />
+    <Compile Include="INodeTransformer.cs" />
     <Compile Include="MainEntry.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="NodeDescriber.cs" />
+    <Compile Include="NodeTransformer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

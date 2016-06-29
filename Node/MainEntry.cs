@@ -13,12 +13,13 @@ namespace Node
             INodeDescriber nodeDescriber = new NodeDescriber();
             var testData = new SingleChildNode("root",
                             new TwoChildrenNode("child1",
-                            new NoChildrenNode("leaf1"),
-                            new SingleChildNode("child2",
-                                new NoChildrenNode("leaf2"))));
+                                new NoChildrenNode("leaf1"),
+                                new SingleChildNode("child2",
+                                    new NoChildrenNode("leaf2"))));
 
             var result = nodeDescriber.Describe(testData);
             Console.Write(result);
+            Console.ReadKey();
         }
     }
 }

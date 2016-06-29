@@ -1,6 +1,5 @@
 C:\VSWorkSpace\Node\Node.Tests\bin\Debug\Node.Tests.dll
 C:\VSWorkSpace\Node\Node.Tests\bin\Debug\Node.Tests.pdb
-C:\VSWorkSpace\Node\Node.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\VSWorkSpace\Node\Node.Tests\obj\Debug\Node.Tests.dll
 C:\VSWorkSpace\Node\Node.Tests\obj\Debug\Node.Tests.pdb
 C:\VSWorkSpace\Node\Node.Tests\bin\Debug\Node.exe
